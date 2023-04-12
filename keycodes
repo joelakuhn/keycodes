@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
-table = [
+'use strict';
+
+var table = [
 	{ name: "backspace",                 code: "8",   key: "Backspace" },
 	{ name: "tab",                       code: "9",   key: "Tab" },
 	{ name: "enter",                     code: "13",  key: "Enter" },
