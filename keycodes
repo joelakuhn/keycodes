@@ -1,0 +1,149 @@
+#!/usr/bin/env node
+
+table = [
+	{ name: "backspace",                 code: "8",   key: "Backspace" },
+	{ name: "tab",                       code: "9",   key: "Tab" },
+	{ name: "enter",                     code: "13",  key: "Enter" },
+	{ name: "shift(left)",               code: "16",  key: "Shift" },
+	{ name: "shift(right)",              code: "16",  key: "Shift" },
+	{ name: "ctrl(left)",                code: "17",  key: "Control" },
+	{ name: "ctrl(right)",               code: "17",  key: "Control" },
+	{ name: "alt(left)",                 code: "18",  key: "Alt" },
+	{ name: "alt(right)",                code: "18",  key: "Alt" },
+	{ name: "pause/break",               code: "19",  key: "Pause" },
+	{ name: "caps lock",                 code: "20",  key: "CapsLock" },
+	{ name: "escape",                    code: "27",  key: "Escape" },
+	{ name: "space",                     code: "32",  key: " " },
+	{ name: "page up",                   code: "33",  key: "PageUp" },
+	{ name: "page down",                 code: "34",  key: "PageDown" },
+	{ name: "end",                       code: "35",  key: "End" },
+	{ name: "home",                      code: "36",  key: "Home" },
+	{ name: "left arrow",                code: "37",  key: "ArrowLeft" },
+	{ name: "up arrow",                  code: "38",  key: "ArrowUp" },
+	{ name: "right arrow",               code: "39",  key: "ArrowRight" },
+	{ name: "down arrow",                code: "40",  key: "ArrowDown" },
+	{ name: "print screen",              code: "44",  key: "PrintScreen" },
+	{ name: "insert",                    code: "45",  key: "Insert" },
+	{ name: "delete",                    code: "46",  key: "Delete" },
+	{ name: "0",                         code: "48",  key: "0" },
+	{ name: "1",                         code: "49",  key: "1" },
+	{ name: "2",                         code: "50",  key: "2" },
+	{ name: "3",                         code: "51",  key: "3" },
+	{ name: "4",                         code: "52",  key: "4" },
+	{ name: "5",                         code: "53",  key: "5" },
+	{ name: "6",                         code: "54",  key: "6" },
+	{ name: "7",                         code: "55",  key: "7" },
+	{ name: "8",                         code: "56",  key: "8" },
+	{ name: "9",                         code: "57",  key: "9" },
+	{ name: "a",                         code: "65",  key: "a" },
+	{ name: "b",                         code: "66",  key: "b" },
+	{ name: "c",                         code: "67",  key: "c" },
+	{ name: "d",                         code: "68",  key: "d" },
+	{ name: "e",                         code: "69",  key: "e" },
+	{ name: "f",                         code: "70",  key: "f" },
+	{ name: "g",                         code: "71",  key: "g" },
+	{ name: "h",                         code: "72",  key: "h" },
+	{ name: "i",                         code: "73",  key: "i" },
+	{ name: "j",                         code: "74",  key: "j" },
+	{ name: "k",                         code: "75",  key: "k" },
+	{ name: "l",                         code: "76",  key: "l" },
+	{ name: "m",                         code: "77",  key: "m" },
+	{ name: "n",                         code: "78",  key: "n" },
+	{ name: "o",                         code: "79",  key: "o" },
+	{ name: "p",                         code: "80",  key: "p" },
+	{ name: "q",                         code: "81",  key: "q" },
+	{ name: "r",                         code: "82",  key: "r" },
+	{ name: "s",                         code: "83",  key: "s" },
+	{ name: "t",                         code: "84",  key: "t" },
+	{ name: "u",                         code: "85",  key: "u" },
+	{ name: "v",                         code: "86",  key: "v" },
+	{ name: "w",                         code: "87",  key: "w" },
+	{ name: "x",                         code: "88",  key: "x" },
+	{ name: "y",                         code: "89",  key: "y" },
+	{ name: "z",                         code: "90",  key: "z" },
+	{ name: "left window key",           code: "91",  key: "Meta" },
+	{ name: "right window key",          code: "92",  key: "Meta" },
+	{ name: "select key (Context Menu)", code: "93",  key: "ContextMenu" },
+	{ name: "numpad 0",                  code: "96",  key: "0" },
+	{ name: "numpad 1",                  code: "97",  key: "1" },
+	{ name: "numpad 2",                  code: "98",  key: "2" },
+	{ name: "numpad 3",                  code: "99",  key: "3" },
+	{ name: "numpad 4",                  code: "100", key: "4" },
+	{ name: "numpad 5",                  code: "101", key: "5" },
+	{ name: "numpad 6",                  code: "102", key: "6" },
+	{ name: "numpad 7",                  code: "103", key: "7" },
+	{ name: "numpad 8",                  code: "104", key: "8" },
+	{ name: "numpad 9",                  code: "105", key: "9" },
+	{ name: "multiply",                  code: "106", key: "*" },
+	{ name: "add",                       code: "107", key: "+" },
+	{ name: "subtract",                  code: "109", key: "-" },
+	{ name: "decimal point",             code: "110", key: "." },
+	{ name: "divide",                    code: "111", key: "/" },
+	{ name: "f1",                        code: "112", key: "F1" },
+	{ name: "f2",                        code: "113", key: "F2" },
+	{ name: "f3",                        code: "114", key: "F3" },
+	{ name: "f4",                        code: "115", key: "F4" },
+	{ name: "f5",                        code: "116", key: "F5" },
+	{ name: "f6",                        code: "117", key: "F6" },
+	{ name: "f7",                        code: "118", key: "F7" },
+	{ name: "f8",                        code: "119", key: "F8" },
+	{ name: "f9",                        code: "120", key: "F9" },
+	{ name: "f10",                       code: "121", key: "F10" },
+	{ name: "f11",                       code: "122", key: "F11" },
+	{ name: "f12",                       code: "123", key: "F12" },
+	{ name: "num lock",                  code: "144", key: "NumLock" },
+	{ name: "scroll lock",               code: "145", key: "ScrollLock" },
+	{ name: "comma",                     code: "188", key: "," },
+	{ name: "period",                    code: "190", key: "." },
+	{ name: "forward slash",             code: "191", key: "/" },
+	{ name: "Backquote/Grave accent",    code: "192", key: "`" },
+	{ name: "open bracket",              code: "219", key: "[" },
+	{ name: "back slash",                code: "220", key: "\\" },
+	{ name: "close bracket",             code: "221", key: "]" },
+	{ name: "single quote",              code: "222", key: "‘" }
+]
+
+function print_line(line) {
+	console.log(line.name.padEnd(30, " ") + line.code.padStart(8, " ").padEnd(12, " "), line.key);
+}
+
+function print_table() {
+	for (var line of table) {
+		print_line(line);
+	}
+}
+
+function find_matches(term) {
+	if (term.match(/\d+/)) {
+		for (var line of table) {
+			if (line.code === term) {
+				print_line(line);
+			}
+		}
+	}
+	if (term.length === 1) {
+		for (var line of table) {
+			if (line.key === term) {
+				print_line(line);
+			}
+		}
+	}
+	else {
+		var matcher = new RegExp(term, "i");
+		for (var line of table) {
+			if (line.name.match(matcher) || line.key.match(matcher)) {
+				print_line(line);
+			}
+		}
+	}
+}
+
+if (process.argv.length === 2) {
+	print_table();
+}
+else {
+	for (var i=2; i<process.argv.length; i++) {
+		find_matches(process.argv[i]);
+	}
+}
+
